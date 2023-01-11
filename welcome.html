@@ -28,7 +28,7 @@
 					msg.classList.add('error')
 					msg.innerHTML = "Wrong verification number";
 				} else {
-					localStorage.removeItem('gen-input');
+					// localStorage.removeItem('gen-input');
 					msg.classList.add('success')
 					msg.innerHTML = "SUCCESS";
 					setTimeout(() => location.href = './end.html', 2000)

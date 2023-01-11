@@ -15,7 +15,8 @@ function generate() {
 	number.innerHTML = `<p>${generated}</p>`
 	
 	setTimeout(() => {
-		location.href = './welcome.html'
+		if (localStorage.getItem('gen-input'))
+			location.href = './welcome.html'
 	}, 2000)
 }
 
