@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="icon" type="favicon" href="./IMages/jlogoonly.ico"/>
+</head>
+<body>
+	<span>FIll in details</span>
+	<form id="form" class="card">
+		<div class="flex">
+			<div>
+				<label for="name">Name</label>
+				<input id="name" type="text" placeholder="Full name pls"/>
+			</div>
+			<div>
+				<label for="id">Id</label>
+				<input type="text" id="id"/>
+			</div>
+			<div>
+				<label for="role">Role</label>
+				<input type="text" placeholder="Role pls" id="role"/>
+			</div>
+			<div>
+				<input value="SUBMIT" type="submit" id="submit" class="btn-ptimary"/>
+				<button class="btn-ptimary"/>
+				Generate ID</button>
+			</div>
+		</div>
+	</form>
+	<script>
+		const nameOfWorkers = [
+			{
+				name: 'Ben Ken Idehen',
+				id: `${Math.floor(Math.random() * 10)}`,
+				role: 'Developer',
+			},
+			{
+				name: 'Baridi Nwinate',
+				id: `${Math.floor(Math.random() * 10)}`,
+				role: 'Business Admin',
+			},
+			{
+				name: 'David Jaja',
+				id: `${Math.floor(Math.random() * 10)}`,
+				role: 'Developer and CEO',
+			}
+		];
+		
+		const id = document.querySelector('#id');
+		const submit = document.querySelector('#submit');
+		const wholeForm = document.querySelector('#form');
+		const random = Math.floor(Math.random() * 10)
+		id.innerHTML = `${random}`
+	</script>
+</body>
+</html>

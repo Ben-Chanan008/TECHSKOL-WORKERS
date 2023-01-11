@@ -118,6 +118,39 @@ form input[type*='text'] {
 	color: #fff;
 }
 
+.flex {
+	margin-left: 20px;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+}
+
+#form div > input {
+	width: 90%;
+	display: block;
+	/*margin: auto;*/
+	align-items: center;
+	justify-content: center;
+}
+
+#form div > label {
+	align-items: center;
+	justify-content: center;
+}
+
+span {
+	font-size: 30px;
+	padding: 20px;
+}
+
+.btn-ptimary {
+	padding: 10px 200px;
+	border-radius: 50px;
+	border: none;
+	margin-top: 20px;
+	background-color: #000000;
+	color: #fff;
+}
 
 @keyframes slideIn {
 	0% {

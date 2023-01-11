@@ -28,16 +28,16 @@
 					msg.classList.add('error')
 					msg.innerHTML = "Wrong verification number";
 				} else {
-					// localStorage.removeItem('gen-input');
+					localStorage.removeItem('gen-input');
 					msg.classList.add('success')
 					msg.innerHTML = "SUCCESS";
-					setTimeout(() => location.href = './end.html', 2000)
+					setTimeout(() => location.href = './new.html', 2000)
 				}
 			else {
 				msg.classList.add('error')
 				msg.innerHTML = "An error occurred please start again.";
 				
-				setTimeout(() => location.href = './index.html', 2000)
+				setTimeout(() => location.href = './index.html', 3000)
 			}
 		}
 	
