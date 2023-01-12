@@ -152,6 +152,19 @@ span {
 	color: #fff;
 }
 
+.btn-ptimary:hover {
+	cursor: pointer;
+	transform: scale(.98);
+}
+
+.first, .last, .second {
+	padding: 10px;
+	color: #333;
+	font-family: 'sofia', 'monospace';
+	font-size: 20px;
+	animation: slideIn .2s ease-in-out;
+}
+
 @keyframes slideIn {
 	0% {
 		transform: translateY(-100%);

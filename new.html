@@ -13,37 +13,42 @@
 			<div>
 				<label for="name">Name</label>
 				<input id="name" type="text" placeholder="Full name pls"/>
+				<div class="labeOne"></div>
 			</div>
 			<div>
 				<label for="id">Id</label>
 				<input type="text" id="id"/>
+				<div class="labelTwo"></div>
 			</div>
 			<div>
 				<label for="role">Role</label>
 				<input type="text" placeholder="Role pls" id="role"/>
+				<div class="labelThree"></div>
 			</div>
 			<div>
 				<input value="SUBMIT" type="submit" id="submit" class="btn-ptimary"/>
-				<button class="btn-ptimary"/>
-				Generate ID</button>
 			</div>
 		</div>
 	</form>
+	<button class="btn-ptimary generate">
+		CLEAR FIELDS
+	</button>
 	<script>
+		const arrayId = [01, 01, 03]
 		const nameOfWorkers = [
 			{
 				name: 'Ben Ken Idehen',
-				id: `${Math.floor(Math.random() * 10)}`,
+				id: parseInt(`${Math.floor(Math.random() * 10)}`),
 				role: 'Developer',
 			},
 			{
 				name: 'Baridi Nwinate',
-				id: `${Math.floor(Math.random() * 10)}`,
+				id: parseInt(`${Math.floor(Math.random() * 10)}`),
 				role: 'Business Admin',
 			},
 			{
 				name: 'David Jaja',
-				id: `${Math.floor(Math.random() * 10)}`,
+				id: parseInt(`${Math.floor(Math.random() * 10)}`),
 				role: 'Developer and CEO',
 			}
 		];
@@ -51,8 +56,44 @@
 		const id = document.querySelector('#id');
 		const submit = document.querySelector('#submit');
 		const wholeForm = document.querySelector('#form');
+		const nameInput = document.querySelector('#name');
+		const roleInput = document.querySelector('#role');
 		const random = Math.floor(Math.random() * 10)
+		const buttonGenerate = document.querySelector('.generate');
 		id.innerHTML = `${random}`
+		document.getElementById('id').max = "10";
+		
+		wholeForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+			// console.log()
+			if (nameInput.value === '' || id.value === '' || roleInput.value === '') {
+				// console.log('error')
+				if (nameInput !== '' || roleInput === '' || id.value === '') {
+					document.querySelector('.first').innerHTML = 'PLease Put in fields'
+				}
+				// console.log(nameOfWorkers)
+			}
+			const objectOne = {
+				name: `${nameInput.value}`,
+				id: parseInt(`${id.value}`),
+				role: `${roleInput.value}`
+			}
+			nameOfWorkers.push(objectOne)
+			// const nameOfAddedWorker = new Add(`)
+			// console.log(objectOne)
+		})
+		
+		window.addEventListener('onload', () => {
+			nameInput.value = ''
+			id.value = ''
+			roleInput.value = ''
+		})
+		
+		buttonGenerate.addEventListener('click', () => {
+			nameInput.value = ''
+			id.value = ''
+			roleInput.value = ''
+		});
 	</script>
 </body>
 </html>
