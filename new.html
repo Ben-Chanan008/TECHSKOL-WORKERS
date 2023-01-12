@@ -13,17 +13,17 @@
 			<div>
 				<label for="name">Name</label>
 				<input id="name" type="text" placeholder="Full name pls"/>
-				<div class="labeOne"></div>
+				<div class="labelOne"></div>
 			</div>
 			<div>
 				<label for="id">Id</label>
 				<input type="text" id="id"/>
-				<div class="labelTwo"></div>
+				<div class="labelOne"></div>
 			</div>
 			<div>
 				<label for="role">Role</label>
 				<input type="text" placeholder="Role pls" id="role"/>
-				<div class="labelThree"></div>
+				<div class="labelOne"></div>
 			</div>
 			<div>
 				<input value="SUBMIT" type="submit" id="submit" class="btn-ptimary"/>
@@ -34,7 +34,7 @@
 		CLEAR FIELDS
 	</button>
 	<script>
-		const arrayId = [01, 01, 03]
+		// const arrayId = [01, 01, 03]
 		const nameOfWorkers = [
 			{
 				name: 'Ben Ken Idehen',
@@ -60,29 +60,48 @@
 		const roleInput = document.querySelector('#role');
 		const random = Math.floor(Math.random() * 10)
 		const buttonGenerate = document.querySelector('.generate');
+		const validate = document.querySelectorAll('.labelOne')
 		id.innerHTML = `${random}`
 		document.getElementById('id').max = "10";
+		const something = id.value === '' || roleInput.value === '';
+		const someOne = id.value === '';
 		
 		wholeForm.addEventListener('submit', (e) => {
 			e.preventDefault();
 			// console.log()
-			if (nameInput.value === '' || id.value === '' || roleInput.value === '') {
+			id.value = parseInt(id.value)
+			if (nameInput.value === '' && id.value === '' && roleInput.value === '') {
 				// console.log('error')
-				if (nameInput !== '' || roleInput === '' || id.value === '') {
-					document.querySelector('.first').innerHTML = 'PLease Put in fields'
+				validate[0].classList.add('first')
+				validate[0].innerText = 'Please put in a name';
+				validate[1].classList.add('first')
+				validate[1].innerText = 'Please put in a id';
+				validate[2].classList.add('first')
+				validate[2].innerText = 'Please put in a role';
+			} else if (nameInput.value !== '' && something) {
+				validate[1].classList.add('first')
+				validate[1].innerText = 'Please put in a id';
+				validate[2].classList.add('first')
+				validate[2].innerText = 'Please put in a role';
+			} else if (nameInput.value !== '' || roleInput.value !== '' && someOne) {
+				validate[1].classList.add('first')
+				validate[1].innerText = 'Please put in a id';
+			} else {
+				const objectOne = {
+					name: `${nameInput.value}`,
+					id: parseInt(`${id.value}`),
+					role: `${roleInput.value}`
 				}
-				// console.log(nameOfWorkers)
+				nameOfWorkers.push(objectOne)
+				console.log(nameOfWorkers)
 			}
-			const objectOne = {
-				name: `${nameInput.value}`,
-				id: parseInt(`${id.value}`),
-				role: `${roleInput.value}`
-			}
-			nameOfWorkers.push(objectOne)
-			// const nameOfAddedWorker = new Add(`)
-			// console.log(objectOne)
 		})
-		
+		const objectOne = {
+			name: `${nameInput.value}`,
+			id: parseInt(`${id.value}`),
+			role: `${roleInput.value}`
+		}
+		console.log(typeof id.value)
 		window.addEventListener('onload', () => {
 			nameInput.value = ''
 			id.value = ''
