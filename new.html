@@ -58,35 +58,37 @@
 		const wholeForm = document.querySelector('#form');
 		const nameInput = document.querySelector('#name');
 		const roleInput = document.querySelector('#role');
-		const random = Math.floor(Math.random() * 10)
+		// const random = Math.floor(Math.random() * 10)
 		const buttonGenerate = document.querySelector('.generate');
 		const validate = document.querySelectorAll('.labelOne')
-		id.innerHTML = `${random}`
-		document.getElementById('id').max = "10";
-		const something = id.value === '' || roleInput.value === '';
-		const someOne = id.value === '';
+		// id.innerHTML = `${random}`
+		// document.getElementById('id').max = "10";
+		const something = id.value === '' && roleInput.value === '';
+		const someOne = roleInput.value === '';
+		const filled = nameInput.value !== '' && id.value !== '';
 		
 		wholeForm.addEventListener('submit', (e) => {
 			e.preventDefault();
 			// console.log()
-			id.value = parseInt(id.value)
+			// id.value = parseInt(id.value)
 			if (nameInput.value === '' && id.value === '' && roleInput.value === '') {
 				// console.log('error')
 				validate[0].classList.add('first')
-				validate[0].innerText = 'Please put in a name';
+				validate[0].innerHTML = '<p>Please put in a name</p>';
 				validate[1].classList.add('first')
-				validate[1].innerText = 'Please put in a id';
+				validate[1].innerHTML = '<p>Please put in a id</p>';
 				validate[2].classList.add('first')
-				validate[2].innerText = 'Please put in a role';
+				validate[2].innerHTML = '<p>Please put in a role</p>';
 			} else if (nameInput.value !== '' && something) {
 				validate[1].classList.add('first')
-				validate[1].innerText = 'Please put in a id';
+				validate[1].innerHTML = '<p>Please put in a id</p>';
 				validate[2].classList.add('first')
-				validate[2].innerText = 'Please put in a role';
-			} else if (nameInput.value !== '' || roleInput.value !== '' && someOne) {
-				validate[1].classList.add('first')
-				validate[1].innerText = 'Please put in a id';
-			} else {
+				validate[2].innerHTML = '<p>Please put in a role</p>';
+			} else if (nameInput.value !== '' || id.value !== '' || roleInput.value === '') {
+				validate[2].classList.add('first')
+				validate[2].innerHTML = '<p>Please put in a role</p>';
+			}
+			if (nameInput.value !== '' || id.value !== '' || roleInput.value !== '') {
 				const objectOne = {
 					name: `${nameInput.value}`,
 					id: parseInt(`${id.value}`),
@@ -94,13 +96,20 @@
 				}
 				nameOfWorkers.push(objectOne)
 				console.log(nameOfWorkers)
+				validate[2].classList.add('hide')
+				setTimeout(() => {
+					location.href = 'search.html'
+				}, 0.1)
+			} else {
+				return;
 			}
 		})
-		const objectOne = {
-			name: `${nameInput.value}`,
-			id: parseInt(`${id.value}`),
-			role: `${roleInput.value}`
-		}
+		
+		// const objectOne = {
+		// 	name: `${nameInput.value}`,
+		// 	id: parseInt(`${id.value}`),
+		// 	role: `${roleInput.value}`
+		// }
 		console.log(typeof id.value)
 		window.addEventListener('onload', () => {
 			nameInput.value = ''
