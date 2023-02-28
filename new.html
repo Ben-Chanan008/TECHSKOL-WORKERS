@@ -68,48 +68,15 @@
 		const filled = nameInput.value !== '' && id.value !== '';
 		
 		wholeForm.addEventListener('submit', (e) => {
-			e.preventDefault();
-			// console.log()
-			// id.value = parseInt(id.value)
-			if (nameInput.value === '' && id.value === '' && roleInput.value === '') {
-				// console.log('error')
-				validate[0].classList.add('first')
-				validate[0].innerHTML = '<p>Please put in a name</p>';
-				validate[1].classList.add('first')
-				validate[1].innerHTML = '<p>Please put in a id</p>';
-				validate[2].classList.add('first')
-				validate[2].innerHTML = '<p>Please put in a role</p>';
-			} else if (nameInput.value !== '' && something) {
-				validate[1].classList.add('first')
-				validate[1].innerHTML = '<p>Please put in a id</p>';
-				validate[2].classList.add('first')
-				validate[2].innerHTML = '<p>Please put in a role</p>';
-			} else if (nameInput.value !== '' || id.value !== '' || roleInput.value === '') {
-				validate[2].classList.add('first')
-				validate[2].innerHTML = '<p>Please put in a role</p>';
+			if ((nameInput.value === '' || nameInput.value == typeof (12))) {
+				validate.forEach(function (tag) {
+					document.query
+				});
 			}
-			if (nameInput.value !== '' || id.value !== '' || roleInput.value !== '') {
-				const objectOne = {
-					name: `${nameInput.value}`,
-					id: parseInt(`${id.value}`),
-					role: `${roleInput.value}`
-				}
-				nameOfWorkers.push(objectOne)
-				console.log(nameOfWorkers)
-				validate[2].classList.add('hide')
-				setTimeout(() => {
-					location.href = 'search.html'
-				}, 0.1)
-			} else {
-				return;
-			}
-		})
+		}
+		e.preventDefault();
 		
-		// const objectOne = {
-		// 	name: `${nameInput.value}`,
-		// 	id: parseInt(`${id.value}`),
-		// 	role: `${roleInput.value}`
-		// }
+		
 		console.log(typeof id.value)
 		window.addEventListener('onload', () => {
 			nameInput.value = ''
